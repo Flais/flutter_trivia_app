@@ -1,3 +1,4 @@
+import 'package:trivia_app_flutter/app/utils/app_routes.dart';
 import 'app_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class AppModule extends MainModule {
 
   @override
   List<ModularRouter> get routers => [
-        ModularRouter(Modular.initialRoute, module: HomeModule()),
+        ModularRouter(AppRoutes.homeModule, module: HomeModule()),
       ];
 
   @override
