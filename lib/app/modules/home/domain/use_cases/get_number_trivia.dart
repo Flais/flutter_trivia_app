@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:trivia_app_flutter/app/modules/home/domain/entities/trivia_entity.dart';
 import 'package:trivia_app_flutter/app/modules/home/domain/repositories_interfaces/number_trivia_repository_interface.dart';
 import 'package:trivia_app_flutter/app/modules/home/infra/models/trivia_model.dart';
 
