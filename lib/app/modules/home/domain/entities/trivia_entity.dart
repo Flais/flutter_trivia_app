@@ -1,5 +1,3 @@
-import 'package:equatable/equatable.dart';
-
 abstract class TriviaEntity {
   final String _text;
   final int _number;

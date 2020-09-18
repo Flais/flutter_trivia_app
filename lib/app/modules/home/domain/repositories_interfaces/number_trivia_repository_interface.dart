@@ -1,7 +1,7 @@
-import 'package:trivia_app_flutter/app/modules/home/domain/entities/trivia_entity.dart';
+import 'package:trivia_app_flutter/app/modules/home/infra/models/trivia_model.dart';
 
 abstract class INumberTriviaRepository {
 
 
-  Future<TriviaEntity> getTrivia({int numberTrivia});
+  Future<TriviaModel> getTrivia({int numberTrivia});
 }

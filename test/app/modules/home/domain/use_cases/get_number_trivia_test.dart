@@ -5,7 +5,7 @@ import 'package:trivia_app_flutter/app/modules/home/domain/repositories_interfac
 import 'package:trivia_app_flutter/app/modules/home/domain/use_cases/get_number_trivia.dart';
 import 'package:trivia_app_flutter/app/modules/home/infra/external_interfaces/data_souces_interfaces/number_trivia_data_source_interface.dart';
 import 'package:trivia_app_flutter/app/modules/home/infra/models/trivia_model.dart';
-import 'package:trivia_app_flutter/app/modules/home/infra/repositories/get_number_trivia_repository.dart';
+import 'package:trivia_app_flutter/app/modules/home/infra/repositories/number_trivia_repository.dart';
 import 'package:trivia_app_flutter/app/utils/fixtures/number_trivia_fixture.dart';
 
 class MockNumberTriviaDataSource extends Mock
@@ -18,7 +18,7 @@ void main() {
 
   setUp(() {
     dataSource = MockNumberTriviaDataSource();
-    repository = GetNumberTriviaRepository(dataSource);
+    repository = NumberTriviaRepository(dataSource);
     useCase = GetNumberTrivia(repository);
   });
 
@@ -27,7 +27,6 @@ void main() {
 
   group('GetNumberTrivia ese cases tests', () {
     test('Successful - Should return a instance of [TriviaModel]', () async {
-
       final tNumberTriviaModel = _getNumberTriviaFixtureData();
 
       //Arrange

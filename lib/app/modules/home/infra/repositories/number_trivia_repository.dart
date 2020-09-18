@@ -3,10 +3,10 @@ import 'package:trivia_app_flutter/app/modules/home/domain/repositories_interfac
 import 'package:trivia_app_flutter/app/modules/home/infra/external_interfaces/data_souces_interfaces/number_trivia_data_source_interface.dart';
 import 'package:trivia_app_flutter/app/modules/home/infra/models/trivia_model.dart';
 
-class GetNumberTriviaRepository implements INumberTriviaRepository {
+class NumberTriviaRepository implements INumberTriviaRepository {
   final INumberTriviaDataSource _dataSource;
 
-  GetNumberTriviaRepository(INumberTriviaDataSource dataSource) : _dataSource = dataSource;
+  NumberTriviaRepository(INumberTriviaDataSource dataSource) : _dataSource = dataSource;
 
   @override
   Future<TriviaModel> getTrivia({@required int numberTrivia}) async {
