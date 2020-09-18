@@ -1,7 +1,5 @@
 # Night Trivia
 
-## Getting Started
-
 Night Trivia é um App desenvolvido com Flutter.
 
 A intenção foi construí-lo seguindo as melhores práticas de programação, pensando em baixo acoplamento e alta coesão do código.
