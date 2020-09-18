@@ -47,6 +47,7 @@ abstract class _HomeControllerBase with Store {
     try {
       final _trivia = await function;
 
+
       setDisplayText(_trivia.text);
 
       _clearNumberTriviaTextFieldValue();

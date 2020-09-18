@@ -17,7 +17,7 @@ class TriviaModel implements TriviaEntity {
 
   factory TriviaModel.fromJson(Map<String, dynamic> json) {
     return TriviaModel(
-      number: json['number'],
+      number: (json['number'] as num).toInt(),
       text: json['text'],
     );
   }

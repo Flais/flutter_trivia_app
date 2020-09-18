@@ -20,7 +20,7 @@ class StandardButton extends StatelessWidget {
     return GestureDetector(
       onTap: this._onTap,
       child: Container(
-        height: 75,
+        height: 70,
         width: 190,
         decoration: BoxDecoration(
             color: Color(0xFF1366E5), borderRadius: BorderRadius.circular(999)),

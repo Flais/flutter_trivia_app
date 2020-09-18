@@ -8,7 +8,7 @@ class GetRandomNumberTrivia {
       : this._repository = repository;
 
   Future<TriviaModel> execute() async {
-    final _triviaEntity = this._repository.getRandomTrivia();
+    final _triviaEntity = await this._repository.getRandomTrivia();
 
     return _triviaEntity;
   }
