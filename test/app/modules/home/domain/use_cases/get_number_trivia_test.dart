@@ -23,7 +23,7 @@ void main() {
   });
 
   //Could be any number
-  final tNumberTrivia = 76;
+  final tNumberTrivia = 76.0;
 
   group('GetNumberTrivia ese cases tests', () {
     test('Successful - Should return a instance of [TriviaModel]', () async {

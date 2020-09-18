@@ -10,7 +10,7 @@ class GetNumberTrivia {
   ) : _repository = repository;
 
   Future<TriviaModel> execute({
-    @required int numberTrivia,
+    @required double numberTrivia,
   }) async {
     final _triviaEntity =
         await _repository.getTrivia(numberTrivia: numberTrivia);

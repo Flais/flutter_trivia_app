@@ -12,12 +12,7 @@ class DioHttpClient implements IHttpClient {
 
       return _response.data;
     } on DioError catch (error) {
-      if (error.type == DioErrorType.CONNECT_TIMEOUT ||
-          error.type == DioErrorType.RECEIVE_TIMEOUT) {
-        throw NetWorkFailureException();
-      } else {
-        throw UnexpectedException();
-      }
+      throw NetWorkFailureException();
     } catch (error){
       print(error);
       throw UnexpectedException();

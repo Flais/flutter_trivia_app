@@ -9,7 +9,7 @@ class NumberTriviaRepository implements INumberTriviaRepository {
   NumberTriviaRepository(INumberTriviaDataSource dataSource) : _dataSource = dataSource;
 
   @override
-  Future<TriviaModel> getTrivia({@required int numberTrivia}) async {
+  Future<TriviaModel> getTrivia({@required double numberTrivia}) async {
     final _response = await _dataSource.getTriviaData(numberTrivia: numberTrivia);
 
     return TriviaModel.fromJson(_response);

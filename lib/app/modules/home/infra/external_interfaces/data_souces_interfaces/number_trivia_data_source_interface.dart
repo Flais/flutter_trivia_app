@@ -1,5 +1,5 @@
 abstract class INumberTriviaDataSource{
 
-  Future<Map<String, dynamic>> getTriviaData({int numberTrivia});
+  Future<Map<String, dynamic>> getTriviaData({double numberTrivia});
 
 }

@@ -8,8 +8,8 @@ class NumbersAPIGetNumberTriviaDataSource implements INumberTriviaDataSource {
       : this._httpClient = httpClient;
 
   @override
-  Future<Map<String, dynamic>> getTriviaData({int numberTrivia}) async {
+  Future<Map<String, dynamic>> getTriviaData({double numberTrivia}) async {
     return await _httpClient
-        .get('http://numbersapi.com/$numberTrivia/trivia?json');
+        .get('http://numbersapi.com/${numberTrivia.toInt()}/trivia?json');
   }
 }

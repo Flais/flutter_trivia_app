@@ -3,5 +3,5 @@ import 'package:trivia_app_flutter/app/modules/home/infra/models/trivia_model.da
 abstract class INumberTriviaRepository {
 
 
-  Future<TriviaModel> getTrivia({int numberTrivia});
+  Future<TriviaModel> getTrivia({double numberTrivia});
 }

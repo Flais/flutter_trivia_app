@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:trivia_app_flutter/app/modules/home/ui/widgets/back_ground_circle.dart';
+import 'package:trivia_app_flutter/app/modules/home/ui/widgets/button_widget.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
-  final String title;
-  const HomePage({Key key, this.title = "Home"}) : super(key: key);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -16,12 +16,174 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+      backgroundColor: Color(0xFF1C203A),
+      body: stack(),
+    );
+  }
+
+  Widget stack() {
+    return Stack(
+      children: [
+        BackGroundCircle(
+          positionedFromBottom: 75,
+          positionedFromLeft: MediaQuery.of(context).size.width * .05,
+          circleSize: 10,
+          circleColor: Color(0xFF1D90A7),
+        ),
+        BackGroundCircle(
+          positionedFromBottom: 20,
+          positionedFromLeft: MediaQuery.of(context).size.width * .055,
+          circleSize: 25,
+          circleColor: Color(0xFF802651),
+        ),
+        BackGroundCircle(
+          positionedFromBottom: -35,
+          positionedFromLeft: MediaQuery.of(context).size.width * .18,
+          circleSize: 50,
+          circleColor: Color(0xFF2C8347),
+        ),
+        BackGroundCircle(
+          positionedFromBottom: -3,
+          positionedFromLeft: MediaQuery.of(context).size.width * .45,
+          circleSize: 10,
+          circleColor: Color(0xFF15489A),
+        ),
+        BackGroundCircle(
+          positionedFromBottom: 25,
+          positionedFromLeft: MediaQuery.of(context).size.width * .63,
+          circleSize: 10,
+          circleColor: Color(0xFF649D17),
+        ),
+        BackGroundCircle(
+          positionedFromBottom: -5,
+          positionedFromLeft: MediaQuery.of(context).size.width * .78,
+          circleSize: 30,
+          circleColor: Color(0xFF208183),
+        ),
+        BackGroundCircle(
+          positionedFromBottom: 70,
+          positionedFromLeft: MediaQuery.of(context).size.width * .90,
+          circleSize: 10,
+          circleColor: Color(0xFF50567B),
+        ),
+        BackGroundCircle(
+          positionedFromBottom: 40,
+          positionedFromLeft: MediaQuery.of(context).size.width * .98,
+          circleSize: 15,
+          circleColor: Color(0xFF2C8347),
+        ),
+        BackGroundCircle(
+          positionedFromBottom: -15,
+          positionedFromLeft: MediaQuery.of(context).size.width * .95,
+          circleSize: 25,
+          circleColor: Color(0xFF186B9A),
+        ),
+        body(),
+      ],
+    );
+  }
+
+  body() {
+    return SafeArea(
+      child: Center(
+        child: Container(
+          width: 500,
+          margin: EdgeInsets.symmetric(horizontal: 35, vertical: 20),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                displayText(),
+                SizedBox(height: 50),
+                textField(),
+                SizedBox(height: 20),
+                buttons(),
+              ],
+            ),
+          ),
+        ),
       ),
-      body: Column(
-        children: <Widget>[],
+    );
+  }
+
+  Widget textField() {
+    return TextFormField(
+      controller: controller.numberTriviaTextController,
+      textAlign: TextAlign.center,
+      cursorColor: Colors.transparent,
+      cursorWidth: 0,
+      keyboardType: TextInputType.number,
+      style:
+          TextStyle(fontSize: 22, color: Colors.white, fontFamily: 'Neuzeit'),
+      decoration: InputDecoration(
+        hintText: 'Type a number here!',
+        hintStyle:
+            TextStyle(fontSize: 22, color: Colors.white, fontFamily: 'Neuzeit'),
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.white),
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: Colors.white),
+        ),
       ),
+    );
+  }
+
+  Widget buttons() {
+    final List<Widget> _buttons = <Widget>[
+      StandardButton(
+        text: 'GO!',
+        onTap: () {
+          if (controller.numberTriviaTextController.text.trim() != '') {
+            controller.getNumberTrivia(
+              numberTrivia:
+                  double.parse(controller.numberTriviaTextController.text),
+            );
+          } else {
+            controller.setDisplayText('Please, type something');
+          }
+        },
+      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+        child: Text(
+          'OR',
+          style: TextStyle(
+              fontSize: 18, color: Colors.white, fontFamily: 'Neuzeit'),
+        ),
+      ),
+      StandardButton(
+        text: 'Get a Random Fact!',
+        fontSize: 16,
+        onTap: () {
+          controller.getRandomNumberTrivia();
+        },
+      ),
+    ];
+
+    return Builder(
+      builder: (BuildContext context) {
+        return MediaQuery.of(context).orientation == Orientation.portrait
+            ? Column(
+                children: _buttons,
+              )
+            : Row(
+                children: _buttons,
+              );
+      },
+    );
+  }
+
+  Widget displayText() {
+    return Observer(
+      builder: (_) {
+        return Text(
+          controller.displayText,
+          style: TextStyle(
+              fontSize: 22, color: Colors.white, fontFamily: 'Neuzeit'),
+          textAlign: TextAlign.center,
+        );
+      },
     );
   }
 }
