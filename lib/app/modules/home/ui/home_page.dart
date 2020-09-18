@@ -92,7 +92,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       child: Center(
         child: Container(
           width: 500,
-          margin: EdgeInsets.only(left: 35, right: 35, bottom: 20),
+          margin: EdgeInsets.symmetric(horizontal: 35),
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
@@ -107,6 +107,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 textField(),
                 SizedBox(height: 20),
                 buttons(),
+                SizedBox(height: 30),
               ],
             ),
           ),
