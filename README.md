@@ -7,7 +7,7 @@ A intenção foi construí-lo seguindo as melhores práticas de programação, p
 #### Nesse projeto foi aplicado:
 
 * Solid;
-* Clean Achitecture (modificada para se trabalhar com aplicações mobile);
+* Clean Architecture (modificada para se trabalhar com aplicações mobile);
 * TDD;
 * Injeção de dependências;
 * Consumo de API RESTful (http://numbersapi.com/);
