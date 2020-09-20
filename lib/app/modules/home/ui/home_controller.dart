@@ -63,3 +63,4 @@ abstract class _HomeControllerBase with Store {
     numberTriviaTextController.text = '';
   }
 }
+
